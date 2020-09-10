@@ -20,7 +20,8 @@ def home():
 
 @app.route('/https/<url>')
 def root(url):    
-#     url = 'https://' + url
+    url = 'https://' + url
+    print('URL:', url)
     r = requests.get(url, verify=False, headers=headers)
     r.raise_for_status()
     rr = Response(response=r.content, status=r.status_code)
