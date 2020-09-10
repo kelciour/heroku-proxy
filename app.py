@@ -18,7 +18,6 @@ def home():
     usage = 'Pass a properly encoded url parameter e.g. /https/www.google.com'
     return usage
 
-@app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def root(path):    
     url = 'https://' + path
