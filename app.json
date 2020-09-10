@@ -5,7 +5,7 @@
     "proxy",
     "welcome"
   ],
-  "repository": "https://github.com/fordnox/heroku-proxy",
+  "repository": "https://github.com/kelciour/heroku-proxy",
   "logo": "https://d29fhpw069ctt2.cloudfront.net/icon/image/38840/preview.svg",
   "env": {
     "PORT": {
