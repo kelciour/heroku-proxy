@@ -21,7 +21,7 @@ def home():
 @app.route('/https/<url>')
 def root(url):    
 #     url = 'https://' + url
-    r = requests.get("https://quizlet.com/25757408/ap-art-history-greek-art-flash-cards/", verify=False, headers=headers)
+    r = requests.get(url, verify=False, headers=headers)
     r.raise_for_status()
     rr = Response(response=r.content, status=r.status_code)
     rr.headers["Content-Type"] = r.headers['Content-Type']
