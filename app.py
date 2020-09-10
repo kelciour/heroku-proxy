@@ -13,11 +13,7 @@ headers = {
   "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36"
 }
 
-@app.route('/')
-def home():
-    usage = 'Pass a properly encoded url parameter e.g. /https/www.google.com'
-    return usage
-
+@app.route('/', defaults={'path': 'google.com'})
 @app.route('/<path:path>')
 def root(path):    
     url = 'https://' + path
