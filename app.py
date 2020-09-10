@@ -18,9 +18,10 @@ def home():
     usage = 'Pass a properly encoded url parameter e.g. /https/www.google.com'
     return usage
 
-@app.route('/https/<url:url>')
-def root(url):    
-    url = 'https://' + url
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def root(path):    
+    url = 'https://' + path
     print('URL:', url)
     r = requests.get(url, verify=False, headers=headers)
     r.raise_for_status()
