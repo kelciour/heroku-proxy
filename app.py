@@ -9,16 +9,19 @@ from flask import Response
 
 app = Flask(__name__)
 
+headers = {
+  "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36"
+}
 
 @app.route('/')
 def home():
     usage = 'Pass a properly encoded url parameter e.g. /https/www.google.com'
     return usage
 
-@app.route('/https/<url>')
+@app.route('/<url>')
 def root(url):    
-    url = 'https://' + url
-    r = requests.get(url)
+#     url = 'https://' + url
+    r = requests.get(url, verify=False, headers=headers)
     rr = Response(response=r.content, status=r.status_code)
     rr.headers["Content-Type"] = r.headers['Content-Type']
     return rr
